@@ -8,7 +8,7 @@ body {
 }
 
 button {
-  width: 75px;
+  width: 72px;
   height: 50px;
   font-size: 18px;
   border: 2px solid transparent;
@@ -45,18 +45,33 @@ button:focus {
 }
 
 .answer {
+  text-align: right;
   margin: 5px;
   padding: 5px 10px;
+  height: 50px;
   font-size: 32px;
   color: #fff;
   background-color: rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid #fff;
 }
 
-.buttons, .operators {
+.buttons, {
   font-size: 0;
 }
 
+/*.operators button {
+  width: 115px;
+}
+*/
+
 .clear button {
+  width: 245px;
+}
+
+.button0 {
+  width: 245px;
+}
+
+.evaluate button {
   width: 245px;
 }
