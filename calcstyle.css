@@ -43,7 +43,7 @@ button:focus {
 
 .calculator {
   width: 350px;
-  margin: 50px auto;
+  margin: 100px auto;
   padding: 20px;
   background-color: tomato;
   border-radius: 5px;
