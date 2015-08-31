@@ -52,15 +52,14 @@
       var value = event.target.dataset.value;
 
       if (value) {
+        // check if first number (empty total)
         if (firstNum) {
           totalNum += value;
-          num = totalNum;
-        } else {
+          answer.innerHTML = totalNum;
+        } else { //there is a total value entered, which will use current number
           currentNum += value;
-          num = currentNum;
+          answer.innerHTML = currentNum;
         }
-
-        answer.innerHTML = num;
       }
 
       log();
