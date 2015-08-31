@@ -77,6 +77,10 @@ button:focus {
   background-color: bisque;
 }
 
+.buttons button:last-child, .evaluate button {
+  margin-bottom: 0;
+}
+
 /*.operators button {
   width: 115px;
 }
