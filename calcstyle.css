@@ -8,13 +8,14 @@ body {
 }
 
 button {
-  width: 72px;
+  width: 70px;
   height: 50px;
   font-size: 18px;
   border: 2px solid transparent;
   border-radius: 3px;
   padding: 0;
-  margin: 10px 5px 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
   background-color: #fff;
   opacity: 0.9;
   font-family: 'Open Sans', sans-serif;
@@ -37,16 +38,17 @@ button:focus {
 }
 
 .calculator {
-  max-width: 295px;
+  width: 350px;
   margin: 50px auto;
   padding: 20px;
   background-color: tomato;
   border-radius: 5px;
+  font-size: 0;
 }
 
 .answer {
   text-align: right;
-  margin: 5px;
+  margin-bottom: 10px;
   padding: 5px 10px;
   height: 50px;
   font-size: 32px;
@@ -55,8 +57,24 @@ button:focus {
   border-bottom: 1px solid #fff;
 }
 
-.buttons, {
-  font-size: 0;
+.buttons, .moar-buttons {
+  display: inline-block;
+}
+
+.buttons {
+  width: 240px;
+}
+
+.moar-buttons {
+  width: 70px;
+}
+
+.moar-buttons button {
+  margin-right: 0;
+}
+
+.clear button {
+  background-color: bisque;
 }
 
 /*.operators button {
@@ -64,7 +82,7 @@ button:focus {
 }
 */
 
-.clear button {
+/*.clear button {
   width: 245px;
 }
 
@@ -74,4 +92,4 @@ button:focus {
 
 .evaluate button {
   width: 245px;
-}
+}*/
