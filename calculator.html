@@ -8,12 +8,7 @@
 </head>
 <body>
   <div class="calculator">
-    <div class="answer">
-      0
-    </div>
-    <div class="clear">
-      <button data-clear>AC</button>
-    </div>
+    <div class="answer">0</div>
     <div class="buttons">
       <button data-value="7">7</button>
       <button data-value="8">8</button>
@@ -24,22 +19,27 @@
       <button data-value="1">1</button>
       <button data-value="2">2</button>
       <button data-value="3">3</button>
-      <button data-value="0" class="button0">0</button> 
+      <button data-value="0">0</button> 
     </div>
-    <div class="operators">
-      <button data-operator="+">+</button>
-      <button data-operator="-">-</button>
-      <button data-operator="*">*</button>
-    </div>
-    <div class="evaluate">
-      <button>=</button>
+    <div class="moar-buttons">
+      <div class="clear">
+        <button data-clear>AC</button>
+      </div>
+      <div class="operators">
+        <button data-operator="+">+</button>
+        <button data-operator="-">-</button>
+      </div>
+      <div class="evaluate">
+        <button>=</button>
+      </div>
     </div>
   </div>
 
   <script>
-    var totalNum = 0;
+    var totalNum = '';
     var currentNum = '';
     var operation = '';
+    var firstNum = true;
     // store elements for later use
     var answer = document.querySelector('.answer');
     var numButtons = document.querySelector('.buttons');
@@ -49,37 +49,55 @@
 
     // get numbers from inputs
     var makeNumber = function(event) {
-      currentNum += event.target.dataset.value;
-      answer.innerHTML = currentNum;
-    };
+      var value = event.target.dataset.value;
 
-    var clear = function() {
-      totalNum = 0;
-      currentNum = '';
-      answer.innerHTML = 0;
+      if (value) {
+        if (firstNum) {
+          totalNum += value;
+          num = totalNum;
+        } else {
+          currentNum += value;
+          num = currentNum;
+        }
+
+        answer.innerHTML = num;
+      }
+
+      log();
     };
 
     var operate = function(event) {
       operation = event.target.dataset.operator;
 
-      if (currentNum) {
-        evaluate();       
+      if (firstNum) {
+        firstNum = false;
       }
+      log();
     };
 
     var evaluate = function() {
-      if (operation === '+') {
-        totalNum += parseInt(currentNum); 
-      } else if (operation === '-') {
-        totalNum -= parseInt(currentNum);
-      } else if (operation === '*') {
-        totalNum *= parseInt(currentNum);
+      // if haz a current number and operation to do
+      if (currentNum && operation) {
+        totalNum = parseInt(totalNum);
+
+        if (operation === '+') { // add to total
+          totalNum += parseInt(currentNum);
+        } else { // subtract from total
+          totalNum -= parseInt(currentNum);
+        }
       }
 
-      log();
-
       currentNum = '';
-      answer.innerHTML = parseInt(totalNum);
+
+      answer.innerHTML = totalNum;
+      log();
+    };
+
+    var clear = function() {
+      totalNum = '';
+      currentNum = '';
+      answer.innerHTML = 0;
+      firstNum = true;
     };
 
     var log = function() {
@@ -88,10 +106,10 @@
     };
 
     // attach event to element
-    clearButton.addEventListener('click', clear);
     numButtons.addEventListener('click', makeNumber);
     operatorButtons.addEventListener('click', operate);
     evaluateButton.addEventListener('click', evaluate);
+    clearButton.addEventListener('click', clear);
   </script>
 </body>
 </html>
