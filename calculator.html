@@ -109,6 +109,9 @@
     operatorButtons.addEventListener('click', operate);
     evaluateButton.addEventListener('click', evaluate);
     clearButton.addEventListener('click', clear);
+    document.addEventListener('keypress', function(e) {
+      console.log(e.keyCode);
+    });
   </script>
 </body>
 </html>
