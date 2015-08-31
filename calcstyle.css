@@ -20,6 +20,8 @@ button {
   opacity: 0.9;
   font-family: 'Open Sans', sans-serif;
   cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 button:hover {
@@ -28,12 +30,13 @@ button:hover {
 
 button:active {
   opacity: 0.8;
+  box-shadow: none;
+  transform: translateY(0px);
 }
 
 button:focus {
   outline: 0;
   border-color: aquamarine;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
   opacity: 1;
 }
 
@@ -44,6 +47,7 @@ button:focus {
   background-color: tomato;
   border-radius: 5px;
   font-size: 0;
+  box-shadow: 0 5px 0 rgba(192, 57, 43, 0.8), 0 10px 0 rgba(255, 0, 0, 0.1);
 }
 
 .answer {
@@ -54,7 +58,7 @@ button:focus {
   font-size: 32px;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .buttons, .moar-buttons {
