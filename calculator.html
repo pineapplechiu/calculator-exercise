@@ -48,23 +48,23 @@
     var evaluateButton = document.querySelector('.evaluate');
 
     // get numbers from inputs
-    var makeNumber = function(event) {
-      var value = event.target.dataset.value;
+    var makeNumberStr = function(event) {
+      var buttonValue = event.target.dataset.value;
 
-      if (value) {
+      if (buttonValue) {
         // check if first number (empty total)
         if (firstNum) {
-          totalNum += value;
+          totalNum += buttonValue;
           answer.innerHTML = totalNum;
-        } else { //there is a total value entered, which will use current number
-          currentNum += value;
+        } else { //there is a value (per button) entered, which will use current number
+          currentNum += buttonValue;
           answer.innerHTML = currentNum;
         }
       }
 
       log();
     };
-
+    // saving the operator to be performed
     var operate = function(event) {
       operation = event.target.dataset.operator;
 
@@ -78,11 +78,12 @@
       // if haz a current number and operation to do
       if (currentNum && operation) {
         totalNum = parseInt(totalNum);
+        currentNum = parseInt(currentNum);
 
         if (operation === '+') { // add to total
-          totalNum += parseInt(currentNum);
+          totalNum += currentNum;
         } else { // subtract from total
-          totalNum -= parseInt(currentNum);
+          totalNum -= currentNum;
         }
       }
 
@@ -100,12 +101,11 @@
     };
 
     var log = function() {
-      console.log('totalNum', totalNum);
-      console.log('currentNum', currentNum);
+      console.log('totalNum: ' + totalNum + '; currentNum: ' + currentNum);
     };
 
     // attach event to element
-    numButtons.addEventListener('click', makeNumber);
+    numButtons.addEventListener('click', makeNumberStr);
     operatorButtons.addEventListener('click', operate);
     evaluateButton.addEventListener('click', evaluate);
     clearButton.addEventListener('click', clear);
